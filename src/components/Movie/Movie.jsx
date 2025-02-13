@@ -38,11 +38,11 @@ const Movie = ({ movie, genres }) => {
           {mapGenreIDsToNames(movie.genre_ids)
             .slice(1, 3)
             .map((g) => (
-              <p>{g} </p>
+                <p className='genre'>{g} </p>
             ))}
         </div>
 
-        <p className="rating">{Number(movie.vote_average).toFixed(1)}</p>
+        <p className="rating">{Number(movie.vote_average).toFixed(1)} / 10</p>
       </div>
     </div>
   );

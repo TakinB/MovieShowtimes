@@ -19,4 +19,10 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow-y: hidden;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-y: hidden;
 }

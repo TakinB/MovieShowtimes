@@ -1,19 +1,19 @@
 .movie {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   width: min(400px, 90vw);
   height: min(600px, 80vh);
   border-radius: 10px;
   margin-left: 20px;
 }
 
+/* TODO: longer movie titles touch the right edge */
 .movie-details {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  margin-left: 50px;
-  margin-top: 50px;
+  justify-content: flex-end;
+  margin: 50px 10px 30px 50px;
+  height: 100%;
 }
 .movie-title {
   font-size: 3rem;
@@ -29,3 +29,9 @@
   font-size: 1.3rem;
   font-weight: bold;
 }
+
+.genre:not(:last-child)::after {
+  content: "•";
+  margin: 0 8px;
+}
+
