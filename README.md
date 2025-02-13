@@ -14,14 +14,22 @@ The app uses a free API to get the movies that are currently playing.
 Please follow these steps to make this app running on your local machine.
 
 1.  I have tried two different API provider
+
     1.1. https://developer.themoviedb.org/
+
     1.2. https://developer.movieglu.com/
 
         Unfortunately the second provider did not have thorough documentations and I didn't manage to make it work. So I used the first proder.
 
-1.  Create an account on https://developer.themoviedb.org/ and get api token.
+1.  Create an account on https://developer.themoviedb.org/ 
+    
+    1.1. After verifying your email,log in to your account
+
+    1.2. Navigate to Profile -> Settings -> API
+
+    1.3. Copy the API Access Token
 1.  Rename .env.example file to .env
-1.  Replace your token in the .env file (This is gitignored so won't be commited.)
+1.  Paste your token in the .env file (This is gitignored so won't be commited.)
 1.  Make sure you have Node installed. [Here](https://github.com/nvm-sh/nvm) is a guide how to install it using nvm.
 1.  on the root directory run:
     `npm install`
