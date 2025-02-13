@@ -2,39 +2,26 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Spinner from "../Spinner/Spinner";
 import Movie from "../Movie/Movie";
-import { fetchMovies } from "../../Helper/APIHelper";
+import { getMoviesList, getAllGenres } from "../../Helper/APIHelper";
+import "./ListView.css";
 
 export default function ListView() {
-  const [movies, setMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
-
-  useEffect(async () => {
-    try {
-      setIsLoading(true);
-      const fetchedMovies = await fetchMovies();
-      setMovies(fetchedMovies);
-      console.log("here *****", fetchedMovies);
-      setIsLoading(false);
-    } catch (e) {
-      setIsLoading(false);
-      setError(true);
-      console.log(e);
-    }
-  }, []);
+  const { data: movies, isLoading: movieLoading, error } = getMoviesList();
+  const { data: genreNames, isLoading: genresLoading } = getAllGenres();
 
   //TODO: add UI element for error state
+  //TODO: change genreNames to context
   return (
-    <>
-      {isLoading ? (
+    <div className="movies-list">
+      {movieLoading || genresLoading ? (
         <Spinner />
       ) : (
         <>
           {movies.map((movie, index) => (
-            <Movie key={index} movie={movie} />
+            <Movie key={index} movie={movie} genres={genreNames} />
           ))}
         </>
       )}
-    </>
+    </div>
   );
 }
