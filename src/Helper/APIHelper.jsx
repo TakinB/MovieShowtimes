@@ -49,3 +49,20 @@ export function getAllGenres() {
     queryFn: fetchGenres,
   });
 }
+
+export function mapGenreIDsToNames(genre_ids, genres) {
+  const genre_names = [];
+  try {
+    for (let i = 0; i < genre_ids.length; i++) {
+      const genre = genre_ids[i];
+      const genre_name = genres.find((g) => g.id === genre)?.name;
+      if (genre_name) {
+        genre_names.push(genre_name);
+      }
+    }
+    return genre_names;
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+}

@@ -18,14 +18,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: #242424;
 }
 
 .close-dialog:hover {
-  color: grey;
+  background-color: grey;
 }
 
 .close-dialog-svg {
   height: 20px;
   width: 20px;
   padding: 0px;
+}
+
+.movie-summary-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 50px 10px 30px 50px;
+  height: 100%;
 }
