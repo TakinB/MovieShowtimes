@@ -8,7 +8,7 @@ const Location = () => {
       <h1> Now Playing</h1>
       <div className="city-container">
         <div className="pulse-contnainer">
-          <div class="pulsing-circle"></div>
+          <div className="pulsing-circle"></div>
         </div>
         <div className="location-text">Seattle</div>
       </div>
