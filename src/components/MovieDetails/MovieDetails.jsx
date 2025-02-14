@@ -2,6 +2,7 @@ import React from "react";
 import "./MovieDetails.css";
 import { mapGenreIDsToNames } from "../../Helper/APIHelper";
 
+// TODO: Add animation to open the MovieDetails component
 const MovieDetails = ({ movie, genres, setDetailedViewOpen }) => {
   return (
     // TODO: add the background color for close button on hover
