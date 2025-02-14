@@ -3,10 +3,16 @@ import "./Location.css";
 
 const Location = () => {
   return (
-    <>
+    <div className="location">
       {/* TODO: Get location from the browser? */}
-      <div className="location">Now playing in Seattle!</div>
-    </>
+      <h1> Now Playing</h1>
+      <div className="city-container">
+        <div className="pulse-contnainer">
+          <div class="pulsing-circle"></div>
+        </div>
+        <div className="location-text">Seattle</div>
+      </div>
+    </div>
   );
 };
 

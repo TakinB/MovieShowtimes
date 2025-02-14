@@ -1,6 +1,19 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  height: 100vh;
+}
+
 .movies-list {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.list-wrapper {
+  flex: 1;
+  position: relative;
+  margin-top: 110px;
 }

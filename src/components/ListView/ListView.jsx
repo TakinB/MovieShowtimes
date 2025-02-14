@@ -13,19 +13,21 @@ export default function ListView() {
   //TODO: add UI element for error state
   //TODO: change genreNames to context
   return (
-    <div className="list">
+    <>
       {movieLoading || genresLoading ? (
         <Spinner />
       ) : (
-        <>
+        <div className="list">
           <Location />
-          <div className="movies-list">
-            {movies.map((movie, index) => (
-              <Movie key={index} movie={movie} genres={genreNames} />
-            ))}
+          <div className="list-wrapper">
+            <div className="movies-list">
+              {movies.map((movie, index) => (
+                <Movie key={index} movie={movie} genres={genreNames} />
+              ))}
+            </div>
           </div>
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 }

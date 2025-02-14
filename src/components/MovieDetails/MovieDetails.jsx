@@ -3,6 +3,7 @@ import "./MovieDetails.css";
 
 const MovieDetails = () => {
   return (
+    // TODO: add the background color for close button on hover
     <div className="movie-details">
       <button type="button" className="close-dialog">
         <svg

@@ -3,5 +3,54 @@
   top: 20px;
   left: 20px;
   font-size: 1rem;
-  color: grey;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 5px;
+  z-index: 10;
+}
+
+.city-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.pulse-contnainer {
+  width: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.pulsing-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(115, 115, 121);
+  animation-name: pulsate;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+}
+
+.location-text {
+  color: rgb(115, 115, 121);
+}
+
+@keyframes pulsate {
+  0% {
+    width: 10px;
+    height: 10px;
+  }
+  50% {
+    width: 12px;
+    height: 12px;
+  }
+  0% {
+    width: 10px;
+    height: 10px;
+  }
 }
