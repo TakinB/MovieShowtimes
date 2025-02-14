@@ -1,5 +1,6 @@
 .movie {
   display: flex;
+  position: relative;
   flex-direction: column;
   width: min(400px, 90vw);
   height: min(600px, 80vh);
@@ -8,7 +9,7 @@
 }
 
 /* TODO: longer movie titles touch the right edge */
-.movie-details {
+.movie-summary {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -34,4 +35,3 @@
   content: "•";
   margin: 0 8px;
 }
-

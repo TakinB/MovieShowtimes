@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Spinner from "../Spinner/Spinner";
 import Movie from "../Movie/Movie";
+import Location from "../Location/Location";
 import { getMoviesList, getAllGenres } from "../../Helper/APIHelper";
 import "./ListView.css";
 
@@ -17,15 +18,12 @@ export default function ListView() {
         <Spinner />
       ) : (
         <>
-        <div className="location">
-          Now playing in ...
-        </div>
-        <div className="movies-list">
-        {movies.map((movie, index) => (
-            <Movie key={index} movie={movie} genres={genreNames} />
-          ))}
-        </div>
-
+          <Location />
+          <div className="movies-list">
+            {movies.map((movie, index) => (
+              <Movie key={index} movie={movie} genres={genreNames} />
+            ))}
+          </div>
         </>
       )}
     </div>
