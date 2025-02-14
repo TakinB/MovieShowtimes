@@ -1,9 +1,13 @@
 import React from "react";
 import "./MovieDetails.css";
-import { mapGenreIDsToNames } from "../../Helper/APIHelper";
-
+import { mapGenreIDsToNames } from "../../Helper/MovieAPIHelper";
+import { getLLMResponse } from "../../Helper/OpenAiHelper";
+import { Chat } from "../Chat/Chat";
 // TODO: Add animation to open the MovieDetails component
 const MovieDetails = ({ movie, genres, setDetailedViewOpen }) => {
+  const { data: llmReponse, isLoading } = getLLMResponse(movie.overview);
+
+  console.log(llmReponse);
   return (
     // TODO: add the background color for close button on hover
     <div
@@ -55,6 +59,15 @@ const MovieDetails = ({ movie, genres, setDetailedViewOpen }) => {
         <p className="rating">{Number(movie.vote_average).toFixed(1)} / 10</p>
       </div>
       {/* Add your movie details content here */}
+      {movie.original_title == "Moana" ? (
+        <Chat
+          messages="The Godfather"
+          inputMessage="An organized crime dynasty's aging patriarch transfers control of his clandestine empire to his reluctant son."
+          showInfo="The film explores themes of family, power, loyalty, and the American Dream through the lens of organized crime. It uses dark cinematography and symbolic imagery to represent moral corruption."
+        />
+      ) : (
+        <div>"Uner Constructions"</div>
+      )}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import Spinner from "../Spinner/Spinner";
 import Movie from "../Movie/Movie";
 import Location from "../Location/Location";
-import { getMoviesList, getAllGenres } from "../../Helper/APIHelper";
+import { getMoviesList, getAllGenres } from "../../Helper/MovieAPIHelper";
 import "./ListView.css";
 
 export default function ListView() {

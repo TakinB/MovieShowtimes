@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
-const apiUrl = import.meta.env.VITE_API_URL;
-const API_TOKEN = import.meta.env.VITE_API_TOKEN;
+const apiUrl = import.meta.env.VITE_MOVIE_API_URL;
+const apiToken = import.meta.env.VITE_MOVIE_API_TOKEN;
 
 const fetchMovies = async () => {
   const response = await fetch(
@@ -10,7 +10,7 @@ const fetchMovies = async () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization: `Bearer ${API_TOKEN}`,
+        Authorization: `Bearer ${apiToken}`,
       },
     }
   );
@@ -26,7 +26,7 @@ const fetchGenres = async () => {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization: `Bearer ${API_TOKEN}`,
+      Authorization: `Bearer ${apiToken}`,
     },
   });
   if (!response.ok) {
