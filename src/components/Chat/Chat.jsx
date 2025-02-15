@@ -5,7 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import {
   directorResponse,
   createChatCompletion,
-} from "../../Helper/OpenAiHelper";
+} from "../../helpers/OpenAiHelper";
 import { useQuery } from "@tanstack/react-query";
 import "./Chat.css";
 

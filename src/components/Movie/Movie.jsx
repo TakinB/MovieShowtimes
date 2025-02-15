@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Movie.css";
 import Spinner from "../Spinner/Spinner";
 import MovieDetails from "../MovieDetails/MovieDetails";
-import { mapGenreIDsToNames } from "../../Helper/MovieAPIHelper";
+import { mapGenreIDsToNames } from "../../helpers/MovieApiHelper";
 
 const Movie = ({ movie, genres }) => {
   const [detailedViewOpen, setDetailedViewOpen] = useState(false);

@@ -1,7 +1,7 @@
 import React from "react";
 import "./MovieDetails.css";
-import { mapGenreIDsToNames } from "../../Helper/MovieAPIHelper";
-import { directorResponse } from "../../Helper/OpenAiHelper";
+import { mapGenreIDsToNames } from "../../helpers/MovieApiHelper";
+import { directorResponse } from "../../helpers/OpenAiHelper";
 import Chat from "../Chat/Chat";
 
 // TODO: Add animation to open the MovieDetails component

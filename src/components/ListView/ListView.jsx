@@ -3,8 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import Spinner from "../Spinner/Spinner";
 import Movie from "../Movie/Movie";
 import Location from "../Location/Location";
-import { getMoviesList, getAllGenres } from "../../Helper/MovieAPIHelper";
-import fightClub from "../../Helper/fakeAPI";
+import { getMoviesList, getAllGenres } from "../../helpers/MovieApiHelper";
+import fightClub from "../../helpers/fakeApi";
 import "./ListView.css";
 
 export default function ListView() {
