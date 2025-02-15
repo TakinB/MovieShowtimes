@@ -5,6 +5,7 @@ import {
   ChatPromptTemplate,
   MessagesPlaceholder,
 } from "@langchain/core/prompts";
+import { useQuery } from "@tanstack/react-query";
 
 const memory = new BufferMemory({
   returnMessages: true,
@@ -20,7 +21,7 @@ export const createChatCompletion = async ({
 }) => {
   const chat = new ChatOpenAI({
     temperature: 0.7,
-    modelName: "gpt-4",
+    modelName: "chatgpt-4o-latest", //"gpt-4",
     openAIApiKey: import.meta.env.VITE_OPENAI_API_KEY, // for Vite
     // or process.env.REACT_APP_OPENAI_API_KEY for Create React App
   });

@@ -1,0 +1,17 @@
+.send-chat {
+  padding: 0.75rem;
+  border-radius: 5;
+  color: #ffffff;
+  background-color: #3b82f6;
+}
+
+.send-chat:hover {
+  background-color: #2563eb;
+}
+
+.chat-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
