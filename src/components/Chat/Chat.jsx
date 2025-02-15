@@ -2,11 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import { Send, Menu } from "lucide-react";
 // import { Card, CardContent } from "@/components/ui/card";
 import { useMutation } from "@tanstack/react-query";
-import {
-  directorResponse,
-  createChatCompletion,
-} from "../../helpers/OpenAiHelper";
-import { useQuery } from "@tanstack/react-query";
+// import {
+//   directorResponse,
+//   createChatCompletion,
+// } from "../../helpers/OpenAiHelper";
+import { createChatCompletion } from "../../helpers/LangSmithHelper";
 import "./Chat.css";
 
 const Chat = ({ movieTitle, movieDirector, movieSummary, movieAnalysis }) => {
@@ -25,46 +25,46 @@ const Chat = ({ movieTitle, movieDirector, movieSummary, movieAnalysis }) => {
 
   const chatMutation = useMutation({
     mutationFn: createChatCompletion,
-    onSuccess: (response) => {
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content: response,
-        },
-      ]);
-    },
-    onError: (error) => {
-      console.error("Error:", error);
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content:
-            "I apologize, but I'm having trouble responding right now. Please try again.",
-        },
-      ]);
-    },
+    // onSuccess: (response) => {
+    //   setMessages((prev) => [
+    //     ...prev,
+    //     {
+    //       role: "assistant",
+    //       content: response,
+    //     },
+    //   ]);
+    // },
+    // onError: (error) => {
+    //   console.error("Error:", error);
+    //   setMessages((prev) => [
+    //     ...prev,
+    //     {
+    //       role: "assistant",
+    //       content:
+    //         "I apologize, but I'm having trouble responding right now. Please try again.",
+    //     },
+    //   ]);
+    // },
   });
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
     if (!inputMessage.trim() || chatMutation.isPending) return;
 
-    const userMessage = {
-      role: "user",
-      content: inputMessage,
-    };
+    // const userMessage = {
+    //   role: "user",
+    //   content: inputMessage,
+    // };
 
-    setMessages((prev) => [...prev, userMessage]);
-    setInputMessage("");
+    // setMessages((prev) => [...prev, userMessage]);
+    // setInputMessage("");
 
     chatMutation.mutate({
       message: inputMessage,
       movieTitle,
       movieSummary,
       movieAnalysis,
-      chatHistory: messages,
+      //   chatHistory: messages,
     });
   };
 
