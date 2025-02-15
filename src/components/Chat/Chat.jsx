@@ -1,12 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Send, Menu } from "lucide-react";
 // import { Card, CardContent } from "@/components/ui/card";
 import { useMutation } from "@tanstack/react-query";
-import {
-  directorResponse,
-  createChatCompletion,
-} from "../../helpers/OpenAiHelper";
-import { useQuery } from "@tanstack/react-query";
+import { createChatCompletion } from "../../helpers/OpenAiHelper";
 import "./Chat.css";
 
 const Chat = ({ movieTitle, movieDirector, movieSummary, movieAnalysis }) => {

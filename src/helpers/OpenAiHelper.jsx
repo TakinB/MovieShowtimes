@@ -48,28 +48,29 @@ export const createChatCompletion = async ({
     staying consistent with the known facts.
     Keep the reponse very short within maximum 20 words.`,
     ],
-    new MessagesPlaceholder("history"),
+    // new MessagesPlaceholder("history"),
     ["human", "{input}"],
   ]);
 
   const chain = new ConversationChain({
-    memory,
+    // memory,
     prompt: chatPrompt,
     llm: chat,
   });
 
-  // Load chat history into memory
-  for (const msg of chatHistory) {
-    await memory.saveContext(
-      { input: msg.role === "user" ? msg.content : "" },
-      { output: msg.role === "assistant" ? msg.content : "" }
-    );
-  }
+  // // Load chat history into memory
+  // for (const msg of chatHistory) {
+  //   await memory.saveContext(
+  //     { input: msg.role === "user" ? msg.content : "" },
+  //     { output: msg.role === "assistant" ? msg.content : "" }
+  //   );
+  // }
 
   const response = await chain.call({
     input: message,
   });
 
+  console.log(response);
   return response.response;
 };
 
