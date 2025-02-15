@@ -7,8 +7,9 @@ import {
   createChatCompletion,
 } from "../../Helper/OpenAiHelper";
 import { useQuery } from "@tanstack/react-query";
+import "./Chat.css";
 
-const Chat = ({ movieTitle, movieSummary, movieAnalysis }) => {
+const Chat = ({ movieTitle, movieDirector, movieSummary, movieAnalysis }) => {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
 
@@ -68,9 +69,16 @@ const Chat = ({ movieTitle, movieSummary, movieAnalysis }) => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50">
-      {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto p-4">
+    <div className="chat-container">
+      <h2 className="about-title">Chat with the director, {movieDirector}!</h2>
+      <div className="disclaimer-container">
+        <div className="pulse-contnainer">
+          <div className="pulsing-circle"></div>
+        </div>
+        <p className="disclaimer">This is an Alexa enabled feature.</p>
+      </div>
+
+      <div className="chat-history">
         {messages.map((message, index) => (
           <div
             key={index}
@@ -110,13 +118,13 @@ const Chat = ({ movieTitle, movieSummary, movieAnalysis }) => {
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
             placeholder="Ask the director ..."
-            className="send-chat"
+            className="input-chat"
             disabled={chatMutation.isPending}
           />
           <button
             type="submit"
             disabled={chatMutation.isPending || !inputMessage.trim()}
-            className="p-3 rounded-full bg-blue-500 text-white disabled:bg-blue-300 hover:bg-blue-600"
+            className="send"
           >
             Send
           </button>

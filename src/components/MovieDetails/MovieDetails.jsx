@@ -3,6 +3,7 @@ import "./MovieDetails.css";
 import { mapGenreIDsToNames } from "../../Helper/MovieAPIHelper";
 import { directorResponse } from "../../Helper/OpenAiHelper";
 import Chat from "../Chat/Chat";
+
 // TODO: Add animation to open the MovieDetails component
 const MovieDetails = ({ movie, genres, setDetailedViewOpen }) => {
   return (
@@ -60,11 +61,12 @@ const MovieDetails = ({ movie, genres, setDetailedViewOpen }) => {
           <p className="about-summary">{movie.overview}</p>
         </div>
 
-        {movie.original_title == "Wolf Man" ? (
+        {movie.original_title == "Fight Club" ? (
           <Chat
-            movieTitle="The Godfather"
-            movieSummary="An organized crime dynasty's aging patriarch transfers control of his clandestine empire to his reluctant son."
-            movieAnalysis="The film explores themes of family, power, loyalty, and the American Dream through the lens of organized crime. It uses dark cinematography and symbolic imagery to represent moral corruption."
+            movieTitle="Fight Club"
+            movieSummary={movie.overview}
+            movieAnalysis={movie.analysis}
+            movieDirector={movie.director}
           />
         ) : (
           <></>

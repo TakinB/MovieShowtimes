@@ -21,9 +21,8 @@ export const createChatCompletion = async ({
 }) => {
   const chat = new ChatOpenAI({
     temperature: 0.7,
-    modelName: "chatgpt-4o-latest", //"gpt-4",
-    openAIApiKey: import.meta.env.VITE_OPENAI_API_KEY, // for Vite
-    // or process.env.REACT_APP_OPENAI_API_KEY for Create React App
+    modelName: "chatgpt-4o-latest",
+    openAIApiKey: import.meta.env.VITE_OPENAI_API_KEY,
   });
 
   const chatPrompt = ChatPromptTemplate.fromMessages([
@@ -46,7 +45,8 @@ export const createChatCompletion = async ({
     
     Stay in character and be passionate about your work. If asked about details 
     not provided in the summary or analysis, use your creative judgment while 
-    staying consistent with the known facts.`,
+    staying consistent with the known facts.
+    Keep the reponse very short within maximum 20 words.`,
     ],
     new MessagesPlaceholder("history"),
     ["human", "{input}"],
