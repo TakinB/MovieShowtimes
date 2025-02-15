@@ -1,6 +1,8 @@
 import React from "react";
 import "./MovieDetails.css";
-import { mapGenreIDsToNames } from "../../Helper/APIHelper";
+import { mapGenreIDsToNames } from "../../Helper/MovieAPIHelper";
+import { directorResponse } from "../../Helper/OpenAiHelper";
+import Chat from "../Chat/Chat";
 
 // TODO: Add animation to open the MovieDetails component
 const MovieDetails = ({ movie, genres, setDetailedViewOpen }) => {
@@ -53,8 +55,23 @@ const MovieDetails = ({ movie, genres, setDetailedViewOpen }) => {
         </div>
 
         <p className="rating">{Number(movie.vote_average).toFixed(1)} / 10</p>
+
+        <div className="about">
+          <h2 className="about-title">About the Movie</h2>
+          <p className="about-summary">{movie.overview}</p>
+        </div>
+
+        {movie.original_title == "Fight Club" ? (
+          <Chat
+            movieTitle="Fight Club"
+            movieSummary={movie.overview}
+            movieAnalysis={movie.analysis}
+            movieDirector={movie.director}
+          />
+        ) : (
+          <></>
+        )}
       </div>
-      {/* Add your movie details content here */}
     </div>
   );
 };
