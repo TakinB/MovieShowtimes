@@ -44,3 +44,9 @@
   margin: 30px 30px 30px 30px;
   max-width: 600px;
 }
+
+.about-summary {
+  background-color: #0b0b0b8a;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+}
