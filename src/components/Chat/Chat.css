@@ -1,7 +1,7 @@
 /* Chat container styles */
 .chat-container {
   width: auto;
-  max-width: calc(100vw - 60px);
+  max-width: min(calc(100vw - 60px), 600px);
   min-width: 200px;
   border-radius: 12px;
   margin: 0px 30px 50px 30px;

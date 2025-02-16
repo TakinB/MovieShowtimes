@@ -42,4 +42,5 @@
   justify-content: flex-start;
   height: 90%;
   margin: 30px 30px 30px 30px;
+  max-width: 600px;
 }
