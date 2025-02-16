@@ -66,3 +66,7 @@ Please follow these steps to make this app running on your local machine.
     - **MovieAPIHelper**: This is the service helpers for movie API which returns a useQuery
     - **OpenAiHelper**: This is the services helpers for OpenAI API which returns a useQuery
     - **fakeAPI**: this is a fake json payload which will be appended to the api response in ListView.jsx. This adds the movie "Fight Club" to the list of movies. The reason for adding a customised payload to existing API response is that there are more reviews for older movies and LLM has a historical knowledge around them (less likely that the LLM response will be hollucination for a demo)
+
+## Where and how I used AI assisted code
+
+All UI components and css stylings are hand-crafted by me without the use of AI except the Chat component which is crafted in collaboration with Claude.
