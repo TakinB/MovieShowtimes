@@ -8,8 +8,10 @@ The app uses a free API to get the movies that are currently playing.
 1. React
 1. Vite (used to create the React App)
 1. Tailwind CSS [removed]
-1. use-query
+1. use-query (TanStack)
 1. Gen AI API (OpenAI)
+1. LangChain (RAG Orchestration)
+1. Framer Motion (animation library)
 
 # Developer's Guide
 

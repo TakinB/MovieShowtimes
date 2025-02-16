@@ -72,8 +72,8 @@ const Chat = ({ movieTitle, movieDirector, movieSummary, movieAnalysis }) => {
       </h2>
       <div className="chat-container">
         <div className="disclaimer-container">
-          <div className="pulse-contnainer">
-            <div className="pulsing-circle"></div>
+          <div className="alexa-contnainer">
+            <img className="alexa-image" src="/alexa.webp" alt="Alexa" />
           </div>
           <p className="disclaimer">Alexa enabled feature.</p>
         </div>

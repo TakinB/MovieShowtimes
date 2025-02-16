@@ -3,6 +3,7 @@ import "./Movie.css";
 import Spinner from "../Spinner/Spinner";
 import MovieDetails from "../MovieDetails/MovieDetails";
 import { mapGenreIDsToNames } from "../../helpers/MovieApiHelper";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Movie = ({ movie, genres }) => {
   const [detailedViewOpen, setDetailedViewOpen] = useState(false);
@@ -34,13 +35,30 @@ const Movie = ({ movie, genres }) => {
 
         <p className="rating">{Number(movie.vote_average).toFixed(1)} / 10</p>
       </div>
-      {detailedViewOpen && (
-        <MovieDetails
-          movie={movie}
-          genres={genres}
-          setDetailedViewOpen={setDetailedViewOpen}
-        />
-      )}
+      <AnimatePresence>
+        {detailedViewOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 1000,
+            }}
+          >
+            <MovieDetails
+              movie={movie}
+              genres={genres}
+              setDetailedViewOpen={setDetailedViewOpen}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
