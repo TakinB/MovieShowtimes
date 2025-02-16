@@ -9,7 +9,6 @@
   overflow: scroll;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .close-dialog {
@@ -42,5 +41,5 @@
   flex-direction: column;
   justify-content: flex-start;
   height: 90%;
-  margin: 40px 10px 30px 40px;
+  margin: 30px 30px 30px 30px;
 }

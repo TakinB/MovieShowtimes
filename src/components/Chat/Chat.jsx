@@ -64,68 +64,68 @@ const Chat = ({ movieTitle, movieDirector, movieSummary, movieAnalysis }) => {
   };
 
   return (
-    <div className="chat-container">
-      <h2 className="about-title">Chat with the director, {movieDirector}!</h2>
-      <div className="disclaimer-container">
-        <div className="pulse-contnainer">
-          <div className="pulsing-circle"></div>
-        </div>
-        <p className="disclaimer">This is an Alexa enabled feature.</p>
-      </div>
-
-      <div className="chat-history">
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            className={`flex ${
-              message.role === "user" ? "justify-end" : "justify-start"
-            } mb-4`}
-          >
-            <div
-              className={`max-w-[80%] p-3 rounded-lg ${
-                message.role === "user"
-                  ? "bg-blue-500 text-white rounded-br-none"
-                  : "bg-white border rounded-bl-none"
-              }`}
-            >
-              <p className="text-sm">{message.content}</p>
-            </div>
+    <>
+      <h2 className="about-chat">Chat with the director, {movieDirector}!</h2>
+      <div className="chat-container">
+        <div className="disclaimer-container">
+          <div className="pulse-contnainer">
+            <div className="pulsing-circle"></div>
           </div>
-        ))}
-        {chatMutation.isPending && (
-          <div className="flex justify-start mb-4">
-            <div className="max-w-[80%] p-3 rounded-lg bg-white border rounded-bl-none">
-              <div className="flex space-x-2">
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100" />
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200" />
+          <p className="disclaimer">This is an Alexa enabled feature.</p>
+        </div>
+        <div className="chat-history">
+          {messages.map((message, index) => {
+            console.log(message);
+            return (
+              <div
+                key={index}
+                className={`message-container ${
+                  message.role === "user" ? "user" : "agent"
+                } `}
+              >
+                <div
+                  className={`message ${
+                    message.role === "user" ? "user" : "agent"
+                  }`}
+                >
+                  <p className="message-text">{message.content}</p>
+                </div>
+              </div>
+            );
+          })}
+          {chatMutation.isPending && (
+            <div class="loading-container">
+              <div class="dots-container">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
               </div>
             </div>
-          </div>
-        )}
-        <div ref={messagesEndRef} />
-      </div>
+          )}
+          <div ref={messagesEndRef} />
+        </div>
 
-      <div>
-        <form onSubmit={handleSendMessage} className="chat-form">
-          <input
-            type="text"
-            value={inputMessage}
-            onChange={(e) => setInputMessage(e.target.value)}
-            placeholder="Ask the director ..."
-            className="input-chat"
-            disabled={chatMutation.isPending}
-          />
-          <button
-            type="submit"
-            disabled={chatMutation.isPending || !inputMessage.trim()}
-            className="send"
-          >
-            Send
-          </button>
-        </form>
+        <div>
+          <form onSubmit={handleSendMessage} className="chat-form">
+            <input
+              type="text"
+              value={inputMessage}
+              onChange={(e) => setInputMessage(e.target.value)}
+              placeholder="Ask the director ..."
+              className="input-chat"
+              disabled={chatMutation.isPending}
+            />
+            <button
+              type="submit"
+              disabled={chatMutation.isPending || !inputMessage.trim()}
+              className="send"
+            >
+              Send
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -57,21 +57,20 @@ const MovieDetails = ({ movie, genres, setDetailedViewOpen }) => {
         <p className="rating">{Number(movie.vote_average).toFixed(1)} / 10</p>
 
         <div className="about">
-          <h2 className="about-title">About the Movie</h2>
+          <h2 className="about-title">About:</h2>
           <p className="about-summary">{movie.overview}</p>
         </div>
-
-        {movie.original_title == "Fight Club" ? (
-          <Chat
-            movieTitle="Fight Club"
-            movieSummary={movie.overview}
-            movieAnalysis={movie.analysis}
-            movieDirector={movie.director}
-          />
-        ) : (
-          <></>
-        )}
       </div>
+      {movie.original_title == "Fight Club" ? (
+        <Chat
+          movieTitle="Fight Club"
+          movieSummary={movie.overview}
+          movieAnalysis={movie.analysis}
+          movieDirector={movie.director}
+        />
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
