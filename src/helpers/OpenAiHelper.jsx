@@ -70,7 +70,6 @@ export const createChatCompletion = async ({
     input: message,
   });
 
-  console.log(response);
   return response.response;
 };
 

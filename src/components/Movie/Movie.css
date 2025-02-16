@@ -3,7 +3,6 @@
   position: relative;
   flex-direction: column;
   width: min(400px, 90vw);
-  /* height: min(600px, 80vh); */
   height: 90%;
   max-height: 90%;
   border-radius: 10px;

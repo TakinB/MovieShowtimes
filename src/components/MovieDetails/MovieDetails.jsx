@@ -12,7 +12,7 @@ const MovieDetails = ({ movie, genres, setDetailedViewOpen }) => {
       className="movie-details"
       style={{
         backgroundImage:
-          ` linear-gradient(to bottom, rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0)),` +
+          ` linear-gradient(to bottom, rgba(10, 10, 10, 0.18), rgba(0, 0, 0, 1)),` +
           `url( https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.backdrop_path})`,
         backgroundSize: "cover",
         backgroundPosition: "70% 30%",

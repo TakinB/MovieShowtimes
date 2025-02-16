@@ -77,37 +77,41 @@ const Chat = ({ movieTitle, movieDirector, movieSummary, movieAnalysis }) => {
           </div>
           <p className="disclaimer">Alexa enabled feature.</p>
         </div>
-        <div className="chat-history">
-          {messages.map((message, index) => {
-            console.log(message);
-            return (
-              <div
-                key={index}
-                className={`message-container ${
-                  message.role === "user" ? "user" : "agent"
-                } `}
-              >
+        {messages.length != 0 ? (
+          <div className="chat-history">
+            {messages.map((message, index) => {
+              //   console.log(message);
+              return (
                 <div
-                  className={`message ${
+                  key={index}
+                  className={`message-container ${
                     message.role === "user" ? "user" : "agent"
-                  }`}
+                  } `}
                 >
-                  <p className="message-text">{message.content}</p>
+                  <div
+                    className={`message ${
+                      message.role === "user" ? "user" : "agent"
+                    }`}
+                  >
+                    <p className="message-text">{message.content}</p>
+                  </div>
+                </div>
+              );
+            })}
+            {chatMutation.isPending && (
+              <div class="loading-container">
+                <div class="dots-container">
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                  <div class="dot"></div>
                 </div>
               </div>
-            );
-          })}
-          {chatMutation.isPending && (
-            <div class="loading-container">
-              <div class="dots-container">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-              </div>
-            </div>
-          )}
-          <div ref={messagesEndRef} />
-        </div>
+            )}
+            <div ref={messagesEndRef} />
+          </div>
+        ) : (
+          <></>
+        )}
 
         <div>
           <form onSubmit={handleSendMessage} className="chat-form">
