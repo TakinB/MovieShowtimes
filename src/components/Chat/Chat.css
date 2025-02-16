@@ -109,6 +109,8 @@
   border-top-left-radius: 4px;
 }
 
+input,
+p,
 .message-text {
   margin: 0;
   line-height: 1.4;

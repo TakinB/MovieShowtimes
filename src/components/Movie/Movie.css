@@ -24,17 +24,17 @@
 .genres {
   display: flex;
   flex-direction: row;
-  font-size: var(--disclaimer-font);
+  font-size: var(--body-font);
 }
 
 .genre {
   color: var(--mint);
-  font-size: var(--disclaimer-font);
+  font-size: var(--body-font);
   font-weight: 600;
 }
 
 .rating {
-  font-size: var(--disclaimer-font);
+  font-size: var(--body-font);
   font-weight: 600;
 }
 

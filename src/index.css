@@ -6,8 +6,8 @@
 
   --header-font: 2.5rem;
   --subheader-font: 1.5rem;
-  --body-font: 1.2rem;
-  --disclaimer-font: 1rem;
+  --body-font: 1rem;
+  --disclaimer-font: 0.8rem;
 
   font-family: "Montserrat", Inter, system-ui, Avenir, Helvetica, Arial,
     sans-serif;
