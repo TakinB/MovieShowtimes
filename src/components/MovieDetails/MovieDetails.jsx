@@ -61,16 +61,12 @@ const MovieDetails = ({ movie, genres, setDetailedViewOpen }) => {
           <p className="about-summary">{movie.overview}</p>
         </div>
       </div>
-      {movie.original_title == "Fight Club" ? (
-        <Chat
-          movieTitle="Fight Club"
-          movieSummary={movie.overview}
-          movieAnalysis={movie.analysis}
-          movieDirector={movie.director}
-        />
-      ) : (
-        <></>
-      )}
+      <Chat
+        movieTitle={movie.original_title}
+        movieSummary={movie.overview}
+        movieAnalysis={movie.analysis}
+        movieDirector={movie.director}
+      />
     </div>
   );
 };

@@ -65,7 +65,11 @@ const Chat = ({ movieTitle, movieDirector, movieSummary, movieAnalysis }) => {
 
   return (
     <>
-      <h2 className="about-chat">Chat with the director, {movieDirector}!</h2>
+      <h2 className="about-chat">
+        {movieDirector
+          ? `Chat with the director, ${movieDirector}!`
+          : `Chat with the director!`}
+      </h2>
       <div className="chat-container">
         <div className="disclaimer-container">
           <div className="pulse-contnainer">
