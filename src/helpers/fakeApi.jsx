@@ -1,7 +1,7 @@
 const fakeAPI = {
   adult: false,
   backdrop_path: "/hZkgoQYus5vegHoetLkCJzb17zJ.jpg",
-  genre_ids: [18],
+  genre_ids: [18, 53],
   id: 550,
   original_language: "en",
   original_title: "Fight Club",
