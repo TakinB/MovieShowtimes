@@ -9,6 +9,7 @@
   justify-content: flex-start;
   gap: 5px;
   z-index: 10;
+  /* margin: 20px 20px 20px 20px; */
 }
 
 .city-container {
@@ -29,7 +30,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: rgb(115, 115, 121);
+  background-color: var(--mint);
   animation-name: pulsate;
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
@@ -37,7 +38,7 @@
 }
 
 .location-text {
-  color: rgb(115, 115, 121);
+  color: var(--mint);
 }
 
 @keyframes pulsate {

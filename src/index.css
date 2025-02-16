@@ -1,12 +1,17 @@
 :root {
+  --darkBackground: #1d1d26;
+  --lightBackground: #43455c;
+  --mint: #3bba9c;
+  --grey: #707793;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
+  background-color: var(--darkBackground);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -22,7 +27,8 @@ body {
   overflow-y: hidden;
 }
 
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-y: hidden;
 }
