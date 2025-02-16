@@ -75,7 +75,7 @@ const Chat = ({ movieTitle, movieDirector, movieSummary, movieAnalysis }) => {
           <div className="pulse-contnainer">
             <div className="pulsing-circle"></div>
           </div>
-          <p className="disclaimer">This is an Alexa enabled feature.</p>
+          <p className="disclaimer">Alexa enabled feature.</p>
         </div>
         <div className="chat-history">
           {messages.map((message, index) => {
