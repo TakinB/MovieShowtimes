@@ -24,7 +24,7 @@ const Movie = ({ movie, genres }) => {
         <h2 className="movie-title">{movie.original_title}</h2>
         <div className="genres">
           {mapGenreIDsToNames(movie.genre_ids, genres)
-            .slice(1, 3)
+            .slice(0, 2)
             .map((g, index) => (
               <p key={index} className="genre">
                 {g}{" "}
