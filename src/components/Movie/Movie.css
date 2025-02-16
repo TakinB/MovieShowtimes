@@ -18,22 +18,24 @@
   height: 100%;
 }
 .movie-title {
-  font-size: 2.5rem;
+  font-size: var(--header-font);
   font-weight: bold;
 }
 .genres {
   display: flex;
   flex-direction: row;
-  font-size: 1.3rem;
+  font-size: var(--disclaimer-font);
 }
 
 .genre {
   color: var(--mint);
+  font-size: var(--disclaimer-font);
+  font-weight: 600;
 }
 
 .rating {
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: var(--disclaimer-font);
+  font-weight: 600;
 }
 
 .genre:not(:last-child)::after {

@@ -46,7 +46,6 @@
 }
 
 .about-summary {
-  background-color: #0b0b0b8a;
   border-radius: 5px;
-  padding: 10px 10px 10px 10px;
+  font-size: var(--body-font);
 }

@@ -9,7 +9,7 @@
 
 .about-title {
   color: #ffffff;
-  font-size: 1.5em;
+  font-size: var(--subheader-font);
   margin-bottom: 0.75rem;
   font-weight: 600;
   word-wrap: break-word;
@@ -40,7 +40,9 @@
 
 .disclaimer {
   color: #9ca3af;
-  font-size: 0.813rem;
+  font-size: var(--disclaimer-font);
+  color: var(--mint);
+  font-weight: 600;
   margin: 0;
   flex: 1;
 }
@@ -110,12 +112,12 @@
 .message-text {
   margin: 0;
   line-height: 1.4;
-  font-size: 0.938rem;
+  font-size: var(--body-font);
 }
 
 @media (max-width: 480px) {
   .message-text {
-    font-size: 0.875rem;
+    font-size: var(--body-font);
   }
 }
 
@@ -134,13 +136,13 @@
   border: 1px solid #3a3a3a;
   border-radius: 8px;
   color: white;
-  font-size: 1em;
+  font-size: var(--body-font);
   transition: border-color 0.3s ease;
 }
 
 @media (max-width: 480px) {
   .input-chat {
-    font-size: 1em;
+    font-size: var(--body-font);
     padding: 8px 10px;
   }
 }
@@ -159,8 +161,8 @@
   background-color: #2563eb;
   border: none;
   border-radius: 8px;
-  color: white;
-  font-size: 1em;
+  color: rgb(183, 183, 183);
+  font-size: var(--body-font);
   cursor: pointer;
   transition: background-color 0.3s ease;
   white-space: nowrap;
@@ -169,7 +171,7 @@
 @media (max-width: 480px) {
   .send {
     padding: 8px 12px;
-    font-size: 1em;
+    font-size: var(--body-font);
   }
 }
 
