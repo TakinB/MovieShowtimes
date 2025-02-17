@@ -5,8 +5,21 @@ import MovieDetails from "../MovieDetails/MovieDetails";
 import { mapGenreIDsToNames } from "../../helpers/MovieApiHelper";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Movie = ({ movie, genres }) => {
+const Movie = ({ currentIndex, movie, genres, movies }) => {
   const [detailedViewOpen, setDetailedViewOpen] = useState(false);
+  const [currentMovie, setCurrentMovie] = useState(movie);
+
+  const handleNextMovie = () => {
+    console.log("swiped left");
+    const nextIndex = (movies.indexOf(currentMovie) + 1) % movies.length;
+    setDetailedViewOpen(false);
+    setCurrentMovie(movies[nextIndex]);
+    setDetailedViewOpen(true);
+  };
+
+  useEffect(() => {
+    setCurrentMovie(movie);
+  }, [movie]);
 
   //TODO: add UI element for error state
   return (
@@ -19,7 +32,9 @@ const Movie = ({ movie, genres }) => {
         backgroundSize: "cover",
         backgroundPosition: "70% 30%",
       }}
-      onClick={() => setDetailedViewOpen(true)}
+      onClick={() => {
+        setDetailedViewOpen(true);
+      }}
     >
       <div className="movie-summary">
         <h2 className="movie-title">{movie.original_title}</h2>
@@ -52,9 +67,10 @@ const Movie = ({ movie, genres }) => {
             }}
           >
             <MovieDetails
-              movie={movie}
+              movie={currentMovie}
               genres={genres}
               setDetailedViewOpen={setDetailedViewOpen}
+              onNextMovie={handleNextMovie}
             />
           </motion.div>
         )}

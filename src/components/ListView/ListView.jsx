@@ -31,7 +31,13 @@ export default function ListView() {
           <div className="list-wrapper">
             <div className="movies-list">
               {combinedMovies.map((movie, index) => (
-                <Movie key={index} movie={movie} genres={genreNames} />
+                <Movie
+                  key={index}
+                  currentIndex={index}
+                  movie={movie}
+                  genres={genreNames}
+                  movies={movies}
+                />
               ))}
             </div>
           </div>
