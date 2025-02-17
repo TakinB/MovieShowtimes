@@ -36,7 +36,7 @@ export default function ListView() {
                   currentIndex={index}
                   movie={movie}
                   genres={genreNames}
-                  movies={movies}
+                  movies={combinedMovies}
                 />
               ))}
             </div>

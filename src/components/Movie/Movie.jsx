@@ -10,10 +10,17 @@ const Movie = ({ currentIndex, movie, genres, movies }) => {
   const [currentMovie, setCurrentMovie] = useState(movie);
 
   const handleNextMovie = () => {
-    console.log("swiped left");
     const nextIndex = (movies.indexOf(currentMovie) + 1) % movies.length;
     setDetailedViewOpen(false);
     setCurrentMovie(movies[nextIndex]);
+    setDetailedViewOpen(true);
+  };
+
+  const handleExMovie = () => {
+    const prevIndex =
+      (movies.indexOf(currentMovie) - 1 + movies.length) % movies.length;
+    setDetailedViewOpen(false);
+    setCurrentMovie(movies[prevIndex]);
     setDetailedViewOpen(true);
   };
 
@@ -33,6 +40,7 @@ const Movie = ({ currentIndex, movie, genres, movies }) => {
         backgroundPosition: "70% 30%",
       }}
       onClick={() => {
+        setCurrentMovie(movie);
         setDetailedViewOpen(true);
       }}
     >
@@ -71,6 +79,7 @@ const Movie = ({ currentIndex, movie, genres, movies }) => {
               genres={genres}
               setDetailedViewOpen={setDetailedViewOpen}
               onNextMovie={handleNextMovie}
+              OnExMovie={handleExMovie}
             />
           </motion.div>
         )}

@@ -3,7 +3,13 @@ import "./MovieDetails.css";
 import { mapGenreIDsToNames } from "../../helpers/MovieApiHelper";
 import Chat from "../Chat/Chat";
 
-const MovieDetails = ({ movie, genres, setDetailedViewOpen, onNextMovie }) => {
+const MovieDetails = ({
+  movie,
+  genres,
+  setDetailedViewOpen,
+  onNextMovie,
+  OnExMovie,
+}) => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -32,8 +38,9 @@ const MovieDetails = ({ movie, genres, setDetailedViewOpen, onNextMovie }) => {
 
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
 
-    if (isLeftSwipe) {
+    if (isLeftSwipe || isRightSwipe) {
       // Animate the swipe out
       setIsTransitioning(true);
       if (componentRef.current) {
@@ -42,7 +49,11 @@ const MovieDetails = ({ movie, genres, setDetailedViewOpen, onNextMovie }) => {
 
       // Wait for animation to complete before calling onNextMovie
       setTimeout(() => {
-        onNextMovie();
+        if (isLeftSwipe) {
+          onNextMovie();
+        } else {
+          OnExMovie();
+        }
         // Reset position after switching
         if (componentRef.current) {
           componentRef.current.style.transform = "translateX(0)";
