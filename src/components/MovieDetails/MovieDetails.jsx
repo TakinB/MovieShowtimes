@@ -3,17 +3,16 @@ import "./MovieDetails.css";
 import { mapGenreIDsToNames } from "../../helpers/MovieApiHelper";
 import Chat from "../Chat/Chat";
 
-const MovieDetails = ({
-  movie,
-  genres,
-  setDetailedViewOpen,
-  onNextMovie,
-  OnExMovie,
-}) => {
+const MovieDetails = ({ movie, genres, movies, onClose }) => {
+  const [currentIndex, setCurrentIndex] = useState(
+    movies.findIndex((m) => m.id === movie.id)
+  );
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const componentRef = useRef(null);
+
+  const currentMovie = movies[currentIndex];
 
   // the required distance between touchStart and touchEnd to be detected as a swipe
   const minSwipeDistance = 50;
@@ -50,9 +49,9 @@ const MovieDetails = ({
       // Wait for animation to complete before calling onNextMovie
       setTimeout(() => {
         if (isLeftSwipe) {
-          onNextMovie();
+          setCurrentIndex((currentIndex + 1) % movies.length);
         } else {
-          OnExMovie();
+          setCurrentIndex((currentIndex - 1 + movies.length) % movies.length);
         }
         // Reset position after switching
         if (componentRef.current) {
@@ -79,7 +78,7 @@ const MovieDetails = ({
       style={{
         backgroundImage:
           `linear-gradient(to bottom, rgba(27, 0, 0, 0.45), rgba(0, 0, 0, 1)),` +
-          `url(https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.backdrop_path})`,
+          `url(https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${currentMovie.backdrop_path})`,
         backgroundSize: "cover",
         backgroundPosition: "70% 30%",
         transition: isTransitioning ? "transform 0.3s ease-out" : "none",
@@ -89,14 +88,7 @@ const MovieDetails = ({
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
     >
-      <button
-        type="button"
-        className="close-dialog"
-        onClick={(e) => {
-          e.stopPropagation();
-          setDetailedViewOpen(false);
-        }}
-      >
+      <button type="button" className="close-dialog" onClick={onClose}>
         <svg
           className="close-dialog-svg"
           xmlns="http://www.w3.org/2000/svg"
@@ -114,9 +106,9 @@ const MovieDetails = ({
         </svg>
       </button>
       <div className="movie-summary-details">
-        <h2 className="movie-title">{movie.original_title}</h2>
+        <h2 className="movie-title">{currentMovie.original_title}</h2>
         <div className="genres">
-          {mapGenreIDsToNames(movie.genre_ids, genres)
+          {mapGenreIDsToNames(currentMovie.genre_ids, genres)
             .slice(1, 3)
             .map((g, index) => (
               <p key={index} className="genre">
@@ -124,17 +116,19 @@ const MovieDetails = ({
               </p>
             ))}
         </div>
-        <p className="rating">{Number(movie.vote_average).toFixed(1)} / 10</p>
+        <p className="rating">
+          {Number(currentMovie.vote_average).toFixed(1)} / 10
+        </p>
         <div className="about">
           <h2 className="about-title">About:</h2>
-          <p className="about-summary">{movie.overview}</p>
+          <p className="about-summary">{currentMovie.overview}</p>
         </div>
       </div>
       <Chat
-        movieTitle={movie.original_title}
-        movieSummary={movie.overview}
-        movieAnalysis={movie.analysis}
-        movieDirector={movie.director}
+        movieTitle={currentMovie.original_title}
+        movieSummary={currentMovie.overview}
+        movieAnalysis={currentMovie.analysis}
+        movieDirector={currentMovie.director}
       />
     </div>
   );

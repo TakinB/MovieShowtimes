@@ -6,12 +6,15 @@ import Location from "../Location/Location";
 import { getMoviesList, getAllGenres } from "../../helpers/MovieApiHelper";
 import fightClub from "../../helpers/fakeApi";
 import "./ListView.css";
+import MovieDetails from "../MovieDetails/MovieDetails";
 
 export default function ListView() {
   const [combinedMovies, setCombinedMovies] = useState([]);
 
   const { data: movies, isLoading: movieLoading, error } = getMoviesList();
   const { data: genreNames, isLoading: genresLoading } = getAllGenres();
+
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     if (movies && !movieLoading && !genresLoading) {
@@ -33,7 +36,10 @@ export default function ListView() {
               {combinedMovies.map((movie, index) => (
                 <Movie
                   key={index}
-                  currentIndex={index}
+                  onClick={() => {
+                    // console.log("clicked on ", movie.original_title);
+                    setSelectedMovie(movie);
+                  }}
                   movie={movie}
                   genres={genreNames}
                   movies={combinedMovies}
@@ -41,6 +47,15 @@ export default function ListView() {
               ))}
             </div>
           </div>
+
+          {selectedMovie && (
+            <MovieDetails
+              movie={selectedMovie}
+              movies={combinedMovies}
+              genres={genreNames}
+              onClose={() => setSelectedMovie(null)}
+            />
+          )}
         </div>
       )}
     </>
