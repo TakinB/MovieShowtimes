@@ -53,7 +53,6 @@ const MovieDetails = ({ movie, genres, movies, onClose }) => {
   };
 
   return (
-    // TODO: add the background color for close button on hover
     // The frame Motion div and variants are written using Claude
     <div
       className="details-view-container"
