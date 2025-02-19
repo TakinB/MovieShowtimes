@@ -17,6 +17,7 @@ const MovieDetails = ({ movie, genres, movies, onClose }) => {
     return Math.abs(offset) * velocity;
   };
 
+  // The variants object defines different states of the animation
   const variants = {
     enter: (direction) => {
       return {
@@ -53,7 +54,16 @@ const MovieDetails = ({ movie, genres, movies, onClose }) => {
 
   return (
     // TODO: add the background color for close button on hover
-    <div className="details-view-container">
+    // The frame Motion div and variants are written using Claude
+    <div
+      className="details-view-container"
+      role="dialog"
+      aria-labelledby="movie-title"
+      tabIndex="0"
+    >
+      <a href="#chat-section" className="visually-hidden">
+        Skip to chat with the director
+      </a>
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={currentIndex}
@@ -72,9 +82,9 @@ const MovieDetails = ({ movie, genres, movies, onClose }) => {
           onDragEnd={(e, { offset, velocity }) => {
             const swipeAmount = swipePower(offset.x, velocity.x);
             if (swipeAmount < -swipeConfidenceThreshold) {
-              swipe(1);
+              swipe(1); // going to the next movie (swipe left)
             } else if (swipeAmount > swipeConfidenceThreshold) {
-              swipe(-1);
+              swipe(-1); // going to the prev movie (swipe right)
             }
           }}
           className="movie-details"
@@ -86,7 +96,14 @@ const MovieDetails = ({ movie, genres, movies, onClose }) => {
             backgroundPosition: "70% 30%",
           }}
         >
-          <button type="button" className="close-dialog" onClick={onClose}>
+          <button
+            role="button"
+            aria-label="close"
+            type="button"
+            className="close-dialog"
+            onClick={onClose}
+          >
+            {/* svg source from here: https://flowbite.com/docs/components/modal/ */}
             <svg
               className="close-dialog-svg"
               xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +122,7 @@ const MovieDetails = ({ movie, genres, movies, onClose }) => {
           </button>
           <div className="movie-summary-details">
             <h2 className="movie-title">{currentMovie.original_title}</h2>
-            <div className="genres">
+            <div className="genres" aria-label="Movie genres">
               {mapGenreIDsToNames(currentMovie.genre_ids, genres)
                 .slice(1, 3)
                 .map((g, index) => (
@@ -114,9 +131,15 @@ const MovieDetails = ({ movie, genres, movies, onClose }) => {
                   </p>
                 ))}
             </div>
-            <p className="rating">
-              {Number(currentMovie.vote_average).toFixed(1)} / 10
-            </p>
+            <div className="rating">
+              <span className="visually-hidden">Rating: </span>
+              <span aria-hidden="true">
+                {Number(currentMovie.vote_average).toFixed(1)} / 10
+              </span>
+              <span className="visually-hidden">
+                {Number(currentMovie.vote_average).toFixed(1)} out of 10
+              </span>
+            </div>
             <div className="about">
               <h2 className="about-title">About:</h2>
               <p className="about-summary">{currentMovie.overview}</p>
