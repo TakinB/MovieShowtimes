@@ -2,7 +2,21 @@
   box-sizing: border-box;
 }
 
-h1, p {
+h1,
+p {
   margin: 0;
   padding: 0;
+}
+
+/* Added for elements that are added to aid screen reader experience */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
