@@ -18,7 +18,7 @@ export default function ListView() {
 
   useEffect(() => {
     if (movies && !movieLoading && !genresLoading) {
-      setCombinedMovies([fightClub, ...movies]);
+      setCombinedMovies([...movies, fightClub]);
     }
   }, [movies, movieLoading, genresLoading]);
 
