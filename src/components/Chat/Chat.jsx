@@ -117,6 +117,7 @@ const Chat = ({ movieTitle, movieDirector, movieSummary, movieAnalysis }) => {
           <form onSubmit={handleSendMessage} className="chat-form">
             <input
               type="text"
+              aria-label="your message"
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               placeholder="Ask the director ..."
@@ -124,6 +125,8 @@ const Chat = ({ movieTitle, movieDirector, movieSummary, movieAnalysis }) => {
               disabled={chatMutation.isPending}
             />
             <button
+              role="button"
+              aria-label="send chat"
               type="submit"
               disabled={chatMutation.isPending || !inputMessage.trim()}
               className="send"

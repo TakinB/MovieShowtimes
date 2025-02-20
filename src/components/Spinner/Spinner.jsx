@@ -1,6 +1,9 @@
 import React from "react";
 import "./Spinner.css";
 
+// source: https://flowbite.com/docs/components/spinner/
+// converted from tailwind to css
+
 const Spinner = () => {
   return (
     <div className="spinner">
