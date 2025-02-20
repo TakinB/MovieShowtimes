@@ -22,8 +22,10 @@ const Movie = ({ onClick, movie, genres, movies }) => {
       }}
     >
       <div className="movie-summary">
-        <h2 className="movie-title">{movie.original_title}</h2>
-        <div className="genres">
+        <h2 aria-label="movie title" className="movie-title">
+          {movie.original_title}
+        </h2>
+        <div aria-label="genres" className="genres">
           {mapGenreIDsToNames(movie.genre_ids, genres)
             .slice(0, 2)
             .map((g, index) => (
@@ -33,7 +35,9 @@ const Movie = ({ onClick, movie, genres, movies }) => {
             ))}
         </div>
 
-        <p className="rating">{Number(movie.vote_average).toFixed(1)} / 10</p>
+        <p aria-label="rating" className="rating">
+          {Number(movie.vote_average).toFixed(1)} / 10
+        </p>
       </div>
     </div>
   );

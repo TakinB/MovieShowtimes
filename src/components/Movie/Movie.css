@@ -9,7 +9,6 @@
   margin-left: 20px;
 }
 
-/* TODO: longer movie titles touch the right edge */
 .movie-summary {
   display: flex;
   flex-direction: column;
@@ -44,6 +43,7 @@
   margin: 0 8px;
 }
 
+/* compensating for long movie titles in very small screens */
 @media (max-width: 330px) {
   .movie-title {
     font-size: 2rem;

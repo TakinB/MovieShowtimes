@@ -16,6 +16,23 @@ export default function ListView() {
 
   const [selectedMovie, setSelectedMovie] = useState(null);
 
+  //the handle focus functions are written using Claude
+  //added for screen readers to change the focus to the MovieDetails component after click on movie
+  const handleMovieSelect = (movie) => {
+    setSelectedMovie(movie);
+    setTimeout(() => {
+      document.getElementById("movie-details-container")?.focus();
+    }, 100);
+  };
+
+  //added for screen readers to change the focus to the Movie component after click on close button
+  const handleCloseDetails = () => {
+    setSelectedMovie(null);
+    setTimeout(() => {
+      document.getElementById(`movie-${selectedMovie.id}`)?.focus();
+    }, 100);
+  };
+
   useEffect(() => {
     if (movies && !movieLoading && !genresLoading) {
       setCombinedMovies([...movies, fightClub]);
@@ -25,20 +42,23 @@ export default function ListView() {
   //TODO: add UI element for error state
   //TODO: change genreNames to context
   return (
-    <>
+    <main>
+      <h1 className="visually-hidden">Movie List View</h1>
       {movieLoading || genresLoading ? (
         <Spinner />
+      ) : error ? (
+        <p role="alert">Error: {error.message}</p>
       ) : (
         <div className="list">
           <Location />
           <div className="list-wrapper">
-            <div className="movies-list">
+            <div className="movies-list" aria-label="List of movies">
               {combinedMovies.map((movie, index) => (
                 <Movie
                   key={index}
                   onClick={() => {
                     // console.log("clicked on ", movie.original_title);
-                    setSelectedMovie(movie);
+                    handleMovieSelect(movie);
                   }}
                   movie={movie}
                   genres={genreNames}
@@ -50,7 +70,7 @@ export default function ListView() {
           <AnimatePresence>
             {selectedMovie && (
               <>
-                <div className="blured-background"></div>
+                <div className="blured-background" aria-hidden="true"></div>
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -64,12 +84,15 @@ export default function ListView() {
                     bottom: 0,
                     zIndex: 1000,
                   }}
+                  role="dialog"
+                  aria-modal="true"
+                  aria-labelledby="movie-details-title"
                 >
                   <MovieDetails
                     movie={selectedMovie}
                     movies={combinedMovies}
                     genres={genreNames}
-                    onClose={() => setSelectedMovie(null)}
+                    onClose={handleCloseDetails}
                   />
                 </motion.div>
               </>
@@ -77,6 +100,6 @@ export default function ListView() {
           </AnimatePresence>
         </div>
       )}
-    </>
+    </main>
   );
 }
