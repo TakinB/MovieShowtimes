@@ -10,7 +10,7 @@ const Location = () => {
         <div className="pulse-contnainer">
           <div className="pulsing-circle"></div>
         </div>
-        <div className="location-text">Seattle, WA</div>
+        <div className="location-text">Seattle • WA</div>
       </div>
     </div>
   );
