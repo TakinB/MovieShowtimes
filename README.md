@@ -3,6 +3,7 @@
 This repository is a web app created by me using the following technolgies.
 The app uses a free API to get the movies that are currently playing.
 
+This app is deployed on Amplify and is available [here](https://main.dk533bbkowhnl.amplifyapp.com/)
 ## Technologies used:
 
 1. React
@@ -40,7 +41,7 @@ Please follow these steps to make this app running on your local machine.
 1.  Rename .env.example file to .env
 1.  Paste your token in the .env file (This is gitignored so won't be commited.)
 1.  Log in to OpenAI and add credit to your billing account and generate an API key.
-1.  PAste that key in the .env file as well.
+1.  Paste that key in the .env file as well.
 1.  Make sure you have Node installed. [Here](https://github.com/nvm-sh/nvm) is a guide how to install it using nvm.
 1.  on the root directory run:
     `npm install`
@@ -71,4 +72,9 @@ Please follow these steps to make this app running on your local machine.
 
 ## Where and how I used AI assisted code
 
-All UI components and css stylings are hand-crafted by me without the use of AI except the Chat component which is crafted in collaboration with Claude.
+All UI components and css stylings are hand-crafted by me without the use of AI except the following which is crafted in collaboration with Claude.
+
+- Improving animations on swipe action
+- Improving accessibility using aria labels
+- Creating boilerplate code for lang chain
+- Improving aesthetics of chat functionality
