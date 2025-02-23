@@ -9,6 +9,7 @@ import MovieDetails from "../MovieDetails/MovieDetails";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function ListView() {
+  // combines the api response with fight club json
   const [combinedMovies, setCombinedMovies] = useState([]);
 
   const { data: movies, isLoading: movieLoading, error } = getMoviesList();
@@ -40,10 +41,9 @@ export default function ListView() {
   }, [movies, movieLoading, genresLoading]);
 
   //TODO: add UI element for error state
-  //TODO: change genreNames to context
+  //TODO: change genreNames to context or zod
   return (
     <main>
-      <h1 className="visually-hidden">Movie List View</h1>
       {movieLoading || genresLoading ? (
         <Spinner />
       ) : error ? (
@@ -70,6 +70,7 @@ export default function ListView() {
           <AnimatePresence>
             {selectedMovie && (
               <>
+                {/* added this black background so on swipe the movie list doesnt show */}
                 <div className="blured-background" aria-hidden="true"></div>
                 <motion.div
                   initial={{ opacity: 0 }}

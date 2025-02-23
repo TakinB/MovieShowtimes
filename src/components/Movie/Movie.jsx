@@ -15,7 +15,7 @@ const Movie = ({ onClick, movie, genres, movies }) => {
           ` linear-gradient(to top, rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0)),` +
           `url( https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.backdrop_path})`,
         backgroundSize: "cover",
-        backgroundPosition: "70% 30%",
+        backgroundPosition: "70% 30%", //70% 30% showed better coverage by try and error
       }}
       onClick={() => {
         onClick();
@@ -25,7 +25,9 @@ const Movie = ({ onClick, movie, genres, movies }) => {
         <h2 aria-label="movie title" className="movie-title">
           {movie.original_title}
         </h2>
+        {/* just shows the first two genres */}
         <div aria-label="genres" className="genres">
+          {/* converst genre IDs to genre names using another API call reponse */}
           {mapGenreIDsToNames(movie.genre_ids, genres)
             .slice(0, 2)
             .map((g, index) => (
@@ -36,6 +38,7 @@ const Movie = ({ onClick, movie, genres, movies }) => {
         </div>
 
         <p aria-label="rating" className="rating">
+          {/* round up the rating to one decimal */}
           {Number(movie.vote_average).toFixed(1)} / 10
         </p>
       </div>

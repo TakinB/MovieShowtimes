@@ -51,6 +51,7 @@
   }
 }
 
+/* for tablet and up */
 @media (min-width: 700px) {
   .movie {
     width: min(650px, 90vw);

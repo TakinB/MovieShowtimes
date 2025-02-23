@@ -106,12 +106,6 @@
   word-wrap: break-word;
 }
 
-@media (max-width: 480px) {
-  .message {
-    max-width: 90%;
-  }
-}
-
 .message.user {
   background-color: #006c8c;
   color: white;
@@ -130,12 +124,6 @@ p,
   margin: 0;
   line-height: 1.4;
   font-size: var(--body-font);
-}
-
-@media (max-width: 480px) {
-  .message-text {
-    font-size: var(--body-font);
-  }
 }
 
 /* Input form */
@@ -157,13 +145,6 @@ p,
   transition: border-color 0.3s ease;
 }
 
-@media (max-width: 480px) {
-  .input-chat {
-    font-size: var(--body-font);
-    padding: 8px 10px;
-  }
-}
-
 .input-chat:focus {
   outline: none;
   border-color: #4a4a4a;
@@ -183,13 +164,6 @@ p,
   cursor: pointer;
   transition: background-color 0.3s ease;
   white-space: nowrap;
-}
-
-@media (max-width: 480px) {
-  .send {
-    padding: 8px 12px;
-    font-size: var(--body-font);
-  }
 }
 
 .send:hover {
@@ -238,5 +212,31 @@ p,
   50% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .send {
+    padding: 8px 12px;
+    font-size: var(--body-font);
+  }
+}
+
+@media (max-width: 480px) {
+  .input-chat {
+    font-size: var(--body-font);
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .message {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .message-text {
+    font-size: var(--body-font);
   }
 }
