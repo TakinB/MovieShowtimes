@@ -28,7 +28,7 @@ Please follow these steps to make this app running on your local machine.
 
   - https://developer.movieglu.com/
 
-        Unfortunately the second provider did not have thorough documentations and I didn't manage to make it work. So I used the first proder.
+        Unfortunately the second provider did not have thorough documentations and I didn't manage to make it work. So I used the first provider.
 
 2.  Create an account on https://developer.themoviedb.org/
 
